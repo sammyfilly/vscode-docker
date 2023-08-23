@@ -12,7 +12,7 @@ args = sys.argv[1:-2] # The remaining args will be given to the launcher
 adapterHost = args[0]
 
 if adapterHost.isnumeric():
-    args[0] = 'host.docker.internal:' + adapterHost
+    args[0] = f'host.docker.internal:{adapterHost}'
 
 dockerExecArgs = [containerExePath, 'exec', '-d', containerId, 'python3', '/debugpy/launcher'] + args
 
